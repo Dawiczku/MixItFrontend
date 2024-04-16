@@ -21,8 +21,8 @@ function DrinksPage() {
         <div>
             <h1>List of drinks</h1>
             <ul>
-                {drinks.map(drink => (
-                    <li key={drink._id}>{drink.name}</li>
+            {drinks.map((drink, index) => (
+                    <li key={index}>{drink.name}</li>
                 ))}
             </ul>
         </div>
