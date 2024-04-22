@@ -1,0 +1,27 @@
+.selected-drink {
+    margin-top: 2vh;
+}
+
+.selected-drink ul{
+    width: 100vw;
+    height: 88vh;
+    padding: 0;
+    list-style: none;
+    display: grid; /* Display the <ul> element as a grid */
+    grid-template-columns: repeat(2, 1fr); /* Two columns of equal width */
+    gap: 50px; /* Gap between grid items */
+    border: 2px blue solid;
+    margin: 0;
+}
+
+.selected-drink li div {
+    border: dashed 2px red;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ingredients-list {
+    list-style-type:circle;
+}

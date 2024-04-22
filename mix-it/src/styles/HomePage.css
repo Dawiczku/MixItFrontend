@@ -1,0 +1,32 @@
+.home-page {
+    margin-top: 2vh;
+}
+
+.home-page ul {
+    width: 100vw;
+    height: 88vh;
+    padding: 0;
+    list-style: none;
+    display: grid; /* Display the <ul> element as a grid */
+    grid-template-columns: repeat(2, 1fr); /* Two columns of equal width */
+    gap: 50px; /* Gap between grid items */
+    border: 2px blue solid;
+    margin: 0;
+}
+
+.home-page li div {
+    border: dashed 2px red;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-page li div a {
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

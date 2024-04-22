@@ -11,7 +11,17 @@ const drinkService = {
             console.error("Error fetching drinks:", error);
             throw error;
         }
+    },
+    getDrinkById: async (id) => {
+        try {
+            const response = await axios.get(`${API_BASE_URL}/api/v1/recipes/byId/${id}`);
+            return response.data;
+        } catch (error) {
+            console.error(`Error fetching drink with ID ${id}:`, error);
+            throw error;
+        }
     }
 };
+
 
 export default drinkService;

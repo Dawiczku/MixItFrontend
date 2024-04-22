@@ -2,13 +2,14 @@
 
 .navbar {
   font-size: 32px;
-  width: 100%;
-  height: 70px;
+  width: 100vw;
+  height: 10vh;
   padding: 0;
   margin: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border: 2px violet solid;
 }
 
 .navbar > div:first-child {
@@ -17,4 +18,8 @@
 
 .navbar > div:last-child {
   margin-right: 30px;
+}
+
+.navbar a {
+  text-decoration: none;
 }

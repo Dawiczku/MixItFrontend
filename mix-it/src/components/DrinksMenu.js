@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import drinkService from "../services/drinkService";
 
-function DrinksPage() {
+function DrinksMenu() {
     const [drinks, setDrinks] = useState([]);
 
     useEffect(() => {
@@ -29,4 +29,4 @@ function DrinksPage() {
     );
 }
 
-export default DrinksPage;
+export default DrinksMenu;
