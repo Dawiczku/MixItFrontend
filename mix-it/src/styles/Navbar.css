@@ -1,25 +1,48 @@
-/* Navbar.css */
-
 .navbar {
-  font-size: 32px;
-  width: 100vw;
-  height: 10vh;
-  padding: 0;
-  margin: 0;
+  font-size: 1.75rem;
+  padding: 0.5rem 2rem;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  border: 2px violet solid;
-}
-
-.navbar > div:first-child {
-  margin-left: 30px;
-}
-
-.navbar > div:last-child {
-  margin-right: 30px;
+  align-items: center;
+  border-bottom: 1px white solid;
 }
 
 .navbar a {
   text-decoration: none;
+}
+
+.navbar img {
+  margin: 0;
+  padding: 0;
+  width: 300px;
+}
+
+.navbar input {
+  font-size: 1.25rem;
+  padding: 0.75rem 1rem;
+  border: 2px solid white;
+  background-color: inherit;
+  color: white;
+  border-radius: 40px;
+}
+
+.navbar__social-icons {
+  color: rgb(220, 220, 220);
+  transition: 0.05s;
+}
+
+.social-icon--youtube {
+  margin: 0rem 2rem;
+}
+
+.social-icon--youtube:hover svg {
+  fill: #f791e8;
+}
+
+.social-icon--facebook:hover svg {
+  fill: #f791e8;
+}
+
+.social-icon--instagram:hover svg {
+  fill: #f791e8;
 }

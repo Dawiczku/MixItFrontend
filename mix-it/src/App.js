@@ -8,14 +8,13 @@ import SelectedDrink from "./components/SelectedDrink";
 function App() {
   return (
     <Router>
-        <Navbar></Navbar>
-        
-        <Routes>
-          <Route exact path="/" element={<HomePage />} /> 
-          <Route exact path="/drinks-menu" element={<DrinksMenu />} /> 
-          <Route exact path="/drink/:id" element={<SelectedDrink />} /> 
-        </Routes>
-     
+      <Navbar></Navbar>
+
+      <Routes>
+        <Route exact path="/" element={<HomePage />} />
+        <Route exact path="/drinks-menu" element={<DrinksMenu />} />
+        <Route exact path="/drink/:id" element={<SelectedDrink />} />
+      </Routes>
     </Router>
   );
 }

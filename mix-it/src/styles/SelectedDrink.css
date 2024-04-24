@@ -1,27 +1,64 @@
+@import url("https://fonts.googleapis.com/css?family=Sacramento&display=swap");
+
+.selected-drink__wrapper {
+  height: 80vh;
+  padding: 0.5rem 2rem;
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  color: white;
+}
+
+.selected-drink__wrapper legend {
+  font-family: "Sacramento", cursive;
+  font-size: 4rem;
+  text-shadow:
+    0 0 5px #f791e8,
+    0 0 15px #f791e8,
+    0 0 20px #f791e8,
+    0 0 40px #f791e8,
+    0 0 60px #e535eb,
+    0 0 10px #a925dd,
+    0 0 98px #e535eb;
+  color: #fff6a9;
+}
+
 .selected-drink {
-    margin-top: 2vh;
+  font-size: clamp(1rem, 2vw, 2rem);
+  padding: 1rem 2rem;
+  color: rgb(230, 230, 230);
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.55));
+  text-decoration: none;
+  width: 90%;
+  min-height: 400px;
+  border: 3px solid #3dd8fc;
+  box-shadow: 0 0 20px 0 #3dd8fc;
+  transition: 0.05s;
 }
 
-.selected-drink ul{
-    width: 100vw;
-    height: 88vh;
-    padding: 0;
-    list-style: none;
-    display: grid; /* Display the <ul> element as a grid */
-    grid-template-columns: repeat(2, 1fr); /* Two columns of equal width */
-    gap: 50px; /* Gap between grid items */
-    border: 2px blue solid;
-    margin: 0;
-}
-
-.selected-drink li div {
-    border: dashed 2px red;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.selected-drink__name {
+  display: flex;
+  justify-content: center;
 }
 
 .ingredients-list {
-    list-style-type:circle;
+  padding: 0;
+  margin: 0;
+}
+
+.ingredients-list li {
+  text-transform: uppercase;
+  list-style: none;
+}
+
+.dash {
+  text-shadow:
+    0 0 5px #f791e8,
+    0 0 15px #f791e8,
+    0 0 20px #f791e8,
+    0 0 40px #f791e8,
+    0 0 60px #e535eb,
+    0 0 10px #a925dd,
+    0 0 98px #e535eb;
+  color: #fff6a9;
 }
