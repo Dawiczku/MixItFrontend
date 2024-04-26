@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Navbar.css"; // Updated import statement
 
 function Navbar() {
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <div className="navbar">
       <div>
@@ -50,8 +58,28 @@ function Navbar() {
       </div>
 
       {/* <h1 t"o="/">ZapitaTech</h1> */}
-      <img src={require("../images/Zapita.png")} />
-      <input placeholder="Search..." />
+      <Link to="/">
+        <img src={require("../images/Zapita.png")} />
+      </Link>
+
+      <div className="navbar_right">
+        <input placeholder="Search..." />
+        <button type="button" className="hamburger-button" onClick={toggleMenu}>
+          ☰
+        </button>
+        {isMenuOpen && (
+          <div className="dropdown-menu">
+            <ul>
+              <li>
+                <Link to="/categories">Kategorie</Link>
+              </li>
+              <li>
+                <Link to="/ingredients">Składniki</Link>
+              </li>
+            </ul>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

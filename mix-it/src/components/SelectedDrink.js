@@ -48,7 +48,7 @@ function SelectedDrink() {
       <fieldset className="selected-drink selected-drink__ingredients">
         <legend>Skladniki</legend>
         {drink && (
-          <ol className="ingredients-list">
+          <ol className={`ingredients-list ${drink.ingredients.length > 5 ? 'multi-column' : ''}`}>
             {drink.ingredients.map((ingredient, index) => (
               <li key={index}>
                 <span className="dash">-</span> {ingredient}
@@ -71,6 +71,7 @@ function SelectedDrink() {
       </fieldset>
     </div>
   );
+  
 }
 
 export default SelectedDrink;
