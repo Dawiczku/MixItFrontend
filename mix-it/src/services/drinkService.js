@@ -20,6 +20,15 @@ const drinkService = {
             console.error(`Error fetching drink with ID ${id}:`, error);
             throw error;
         }
+    },
+    searchDrinkByName: async (name) => {
+        try {
+            const response = await axios.get(`${API_BASE_URL}/api/v1/recipes/byName/${name}`);
+            return response.data;
+        } catch (error) {
+            console.error(`Error searching for drink with name ${name}:`, error);
+            throw error;
+        }
     }
 };
 

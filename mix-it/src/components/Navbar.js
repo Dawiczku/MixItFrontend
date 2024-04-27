@@ -1,19 +1,54 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import "../styles/Navbar.css"; // Updated import statement
+import React, { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom"; // Import Link
+import "../styles/Navbar.css";
+import drinkService from "../services/drinkService";
 
 function Navbar() {
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  const searchResultsRef = useRef(null);
+  const burgerMenuRef = useRef(null);
 
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+
+  const handleClickOutside = (event) => {
+    if (searchResultsRef.current && !searchResultsRef.current.contains(event.target)) {
+      setSearchResults([]);
+    }
+    if (burgerMenuRef.current && !burgerMenuRef.current.contains(event.target)) {
+      setIsMenuOpen(false);
+    }
+  };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleSearchInputChange = async (event) => {
+    const query = event.target.value;
+    setSearchQuery(query);
+    if (query.trim() !== "") {
+      try {
+        const results = await drinkService.searchDrinkByName(query);
+        setSearchResults(results);
+      } catch (error) {
+        console.error("Error searching for drinks:", error);
+      }
+    } else {
+      setSearchResults([]);
+    }
+  };
+
   return (
     <div className="navbar">
-      <div>
+      <div className="navbar_left">
         <div className="navbar__social-icons">
           <a className="social-icon--instagram" href="https://instagram.com">
             <svg
@@ -57,18 +92,21 @@ function Navbar() {
         </div>
       </div>
 
-      {/* <h1 t"o="/">ZapitaTech</h1> */}
       <Link to="/">
-        <img src={require("../images/Zapita.png")} />
+        <img src={require("../images/Zapita.png")} alt="Zapita Logo" />
       </Link>
 
       <div className="navbar_right">
-        <input placeholder="Search..." />
+        <input
+          placeholder="Search..."
+          value={searchQuery}
+          onChange={handleSearchInputChange}
+        />
         <button type="button" className="hamburger-button" onClick={toggleMenu}>
           ☰
         </button>
         {isMenuOpen && (
-          <div className="dropdown-menu">
+          <div className="dropdown-menu"  ref={burgerMenuRef}>
             <ul>
               <li>
                 <Link to="/categories">Kategorie</Link>
@@ -80,6 +118,20 @@ function Navbar() {
           </div>
         )}
       </div>
+      {searchResults.length > 0 && (
+        <div className="search-results" ref={searchResultsRef}>
+          <ul>
+            {searchResults.map((result) => (
+              <li key={result.id}>
+                {/* Use Link to redirect to selected drink */}
+                <Link to={`/drink/${result.id}`} onClick={() => setSearchQuery("")}>
+                  {result.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
