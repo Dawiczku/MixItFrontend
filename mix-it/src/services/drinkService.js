@@ -29,6 +29,15 @@ const drinkService = {
             console.error(`Error searching for drink with name ${name}:`, error);
             throw error;
         }
+    },
+    getFlavors: async () => {
+        try {
+            const response = await axios.get(`${API_BASE_URL}/api/v1/recipes/flavors`);
+            return response.data;
+        } catch (error) {
+            console.error(`Error fetching flavors`, error);
+            throw error;
+        }
     }
 };
 

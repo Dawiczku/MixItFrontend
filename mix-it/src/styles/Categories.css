@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css?family=Sacramento&display=swap");
+
+body {
+    color: white;
+}
+
+h1 {
+    font-family: "Sacramento", cursive;
+    font-size: 5rem;
+    text-shadow:
+    0 0 5px #f791e8,
+    0 0 15px #f791e8,
+    0 0 20px #f791e8,
+    0 0 40px #f791e8,
+    0 0 60px #e535eb,
+    0 0 10px #a925dd,
+    0 0 98px #e535eb;
+    margin: 0 0 10px 0;
+}
+
+.grid-container {
+    margin: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    height: 60vh;
+}
+
+.grid-item {
+    background-color: transparent;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px; /* Adding border radius for rounded corners */
+    font-size: 1.5rem; /* Adjusting font size */
+    font-weight: bold; /* Making text bold */
+    text-transform: uppercase; /* Transforming text to uppercase */
+    text-shadow:
+        0 0 5px #f791e8,
+        0 0 15px #f791e8,
+        0 0 20px #f791e8,
+        0 0 40px #f791e8,
+        0 0 60px #e535eb,
+        0 0 10px #a925dd,
+        0 0 98px #e535eb; /* Adding neon-like text shadow */
+    border: 3px solid #3dd8fc;
+    box-shadow: 0 0 20px 0 #3dd8fc;
+}
+
+/* Adding hover effect */
+.grid-item:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Lighter background on hover */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}

@@ -4,6 +4,7 @@ import DrinksMenu from "./components/DrinksMenu"; // Import the DrinksPage compo
 import HomePage from "./components/HomePage"; // Import the HomePage component
 import Navbar from "./components/Navbar";
 import SelectedDrink from "./components/SelectedDrink";
+import Categories from "./components/Categories";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route exact path="/" element={<HomePage />} />
         <Route exact path="/drinks-menu" element={<DrinksMenu />} />
         <Route exact path="/drink/:id" element={<SelectedDrink />} />
+        <Route exact path="/categories" element={<Categories />} />
       </Routes>
     </Router>
   );
