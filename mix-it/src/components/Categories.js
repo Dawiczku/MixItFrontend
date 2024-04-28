@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom"; 
 import "../styles/Categories.css";
 import drinkService from "../services/drinkService";
 
@@ -9,7 +10,6 @@ function Categories() {
         const fetchFlavors = async () => {
             try {
                 const flavorsData = await drinkService.getFlavors();
-                // Update the state with fetched flavors
                 setFlavors(flavorsData);
             }
             catch (error) {
@@ -24,9 +24,9 @@ function Categories() {
             <h1>Kategorie</h1>
             <div className="grid">
                 {flavors.map((flavor, index) => (
-                    <div key={index} className="grid-item">
+                   <Link to={`/flavor/${flavor}`} key={index} className="grid-item">
                         {flavor}
-                    </div>
+                   </Link>
                 ))}
             </div>
         </div>

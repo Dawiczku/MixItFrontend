@@ -5,6 +5,8 @@ import HomePage from "./components/HomePage"; // Import the HomePage component
 import Navbar from "./components/Navbar";
 import SelectedDrink from "./components/SelectedDrink";
 import Categories from "./components/Categories";
+import SelectedFlavor from "./components/SelectedFlavor";
+import Ingredients from "./components/Ingredients";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Route exact path="/drinks-menu" element={<DrinksMenu />} />
         <Route exact path="/drink/:id" element={<SelectedDrink />} />
         <Route exact path="/categories" element={<Categories />} />
+        <Route exact path="/ingredients" element={<Ingredients />} />
+        <Route exact path="/flavor/:flavor" element={<SelectedFlavor />} />
       </Routes>
     </Router>
   );

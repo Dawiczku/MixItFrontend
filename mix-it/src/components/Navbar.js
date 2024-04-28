@@ -123,7 +123,7 @@ function Navbar() {
           <ul>
             {searchResults.map((result) => (
               <li key={result.id}>
-                {/* Use Link to redirect to selected drink */}
+                {}
                 <Link to={`/drink/${result.id}`} onClick={() => setSearchQuery("")}>
                   {result.name}
                 </Link>

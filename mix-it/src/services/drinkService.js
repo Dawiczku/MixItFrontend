@@ -1,11 +1,11 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:8080"; 
+const API_BASE_URL = "http://localhost:8080/api/v1/recipes"; 
 
 const drinkService = {
     getDrinks: async () => {
         try {
-            const response = await axios.get(`${API_BASE_URL}/api/v1/recipes/all`);
+            const response = await axios.get(`${API_BASE_URL}/all`);
             return response.data;
         } catch (error) {
             console.error("Error fetching drinks:", error);
@@ -14,7 +14,7 @@ const drinkService = {
     },
     getDrinkById: async (id) => {
         try {
-            const response = await axios.get(`${API_BASE_URL}/api/v1/recipes/byId/${id}`);
+            const response = await axios.get(`${API_BASE_URL}/byId/${id}`);
             return response.data;
         } catch (error) {
             console.error(`Error fetching drink with ID ${id}:`, error);
@@ -23,7 +23,7 @@ const drinkService = {
     },
     searchDrinkByName: async (name) => {
         try {
-            const response = await axios.get(`${API_BASE_URL}/api/v1/recipes/byName/${name}`);
+            const response = await axios.get(`${API_BASE_URL}/byName/${name}`);
             return response.data;
         } catch (error) {
             console.error(`Error searching for drink with name ${name}:`, error);
@@ -32,10 +32,27 @@ const drinkService = {
     },
     getFlavors: async () => {
         try {
-            const response = await axios.get(`${API_BASE_URL}/api/v1/recipes/flavors`);
+            const response = await axios.get(`${API_BASE_URL}/flavors`);
             return response.data;
         } catch (error) {
             console.error(`Error fetching flavors`, error);
+            throw error;
+        }
+    },
+    getDrinksByFlavor: async (flavor) => {
+        try {
+            const response = await axios.get(`${API_BASE_URL}/byFlavor/${flavor}`);
+            return response.data;
+        } catch (error) {
+            throw Error("Error fetching drinks by flavor");
+        }
+    },
+    getIngredients: async () => {
+        try {
+            const response = await axios.get(`${API_BASE_URL}/ingredients`);
+            return response.data;
+        } catch (error) {
+            console.error("Error fetching all ingredients:", error);
             throw error;
         }
     }
