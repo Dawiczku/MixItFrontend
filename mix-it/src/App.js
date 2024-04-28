@@ -7,6 +7,7 @@ import SelectedDrink from "./components/SelectedDrink";
 import Categories from "./components/Categories";
 import SelectedFlavor from "./components/SelectedFlavor";
 import Ingredients from "./components/Ingredients";
+import SelectedIngredients from "./components/SelectedIngredients";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route exact path="/categories" element={<Categories />} />
         <Route exact path="/ingredients" element={<Ingredients />} />
         <Route exact path="/flavor/:flavor" element={<SelectedFlavor />} />
+        <Route exact path="/selectedIngredients" element={<SelectedIngredients />} />
       </Routes>
     </Router>
   );
