@@ -1,7 +1,7 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // Import BrowserRouter, Routes, Route, and Link
-import DrinksMenu from "./components/DrinksMenu"; // Import the DrinksPage component
-import HomePage from "./components/HomePage"; // Import the HomePage component
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import DrinksMenu from "./components/DrinksMenu";
+import HomePage from "./components/HomePage";
 import Navbar from "./components/Navbar";
 import SelectedDrink from "./components/SelectedDrink";
 import Categories from "./components/Categories";
@@ -12,7 +12,7 @@ import SelectedIngredients from "./components/SelectedIngredients";
 function App() {
   return (
     <Router>
-      <Navbar></Navbar>
+      <Navbar />
 
       <Routes>
         <Route exact path="/" element={<HomePage />} />

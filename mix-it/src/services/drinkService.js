@@ -55,6 +55,16 @@ const drinkService = {
             console.error("Error fetching all ingredients:", error);
             throw error;
         }
+    },
+    getRecipesByIngredients: async (ingredients) => {
+        try {
+            const params = ingredients.map(ingredient => `name=${encodeURIComponent(ingredient)}`).join('&');
+            const response = await axios.get(`${API_BASE_URL}/byIngredient?${params}`);
+            return response.data;
+        } catch (error) {
+            console.error("Error fetching recipes by ingredients:", error);
+            throw error;
+        }
     }
 };
 
