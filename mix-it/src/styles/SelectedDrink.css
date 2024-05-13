@@ -2,10 +2,11 @@
 
 .selected-drink__wrapper {
   height: 80vh;
+  margin: 0 auto;
   padding: 0.5rem 2rem;
   display: grid;
-  place-items: center;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   color: white;
 }
 
@@ -36,9 +37,16 @@
   transition: 0.05s;
 }
 
-.selected-drink__name {
-  display: flex;
-  justify-content: center;
+.selected-drink__photo {
+  grid-column: 3;
+  grid-row-start: 1;
+  grid-row-end: -1;
+}
+
+.selected-drink__ingredients,
+.selected-drink__recipe {
+  grid-column-start: 1;
+  grid-column-end: 3;
 }
 
 .ingredients-list {
@@ -64,6 +72,6 @@
 }
 
 .multi-column {
-  column-count: 2; 
-  column-gap: 20px; 
+  column-count: 2;
+  column-gap: 20px;
 }
