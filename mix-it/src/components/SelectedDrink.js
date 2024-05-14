@@ -8,6 +8,10 @@ function SelectedDrink() {
   const [drink, setDrink] = useState(null);
 
   useEffect(() => {
+    console.log(drink);
+  });
+
+  useEffect(() => {
     const fetchDrinkById = async () => {
       try {
         // const drinkData = await drinkService.getDrinkById(id);
@@ -60,8 +64,8 @@ function SelectedDrink() {
         )}
       </fieldset>
       <fieldset className="selected-drink selected-drink__photo">
-        <legend>{drink.name}</legend>
-        <p>PHOTO</p>
+        <legend>{drink && drink.name}</legend>
+        <img src={drink && drink.imageLink} />
       </fieldset>
       <fieldset className="selected-drink selected-drink__recipe">
         <legend>Przepis</legend>
