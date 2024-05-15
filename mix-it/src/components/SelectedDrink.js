@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../styles/SelectedDrink.css";
@@ -7,9 +8,6 @@ function SelectedDrink() {
   const { id } = useParams();
   const [drink, setDrink] = useState(null);
 
-  useEffect(() => {
-    console.log(drink);
-  });
 
   useEffect(() => {
     const fetchDrinkById = async () => {

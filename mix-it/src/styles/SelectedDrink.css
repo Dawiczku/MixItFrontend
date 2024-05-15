@@ -80,11 +80,17 @@
 }
 
 .selected-drink__wrapper img{
-  min-height: 700px;
-  max-width: 600px;
+  min-height: 154%;
+  max-width: 437%;
+  min-width: 437%;
+  margin-left: -84px;
+  margin-top: -20px;
+  opacity: 0.7;
+  border-radius: 20px;
 }
 
 .multi-column {
   column-count: 2;
   column-gap: 20px;
 }
+

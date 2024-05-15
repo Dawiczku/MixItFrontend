@@ -64,6 +64,7 @@
   background-color: rgba(0, 0, 0, 0.9);
   border: 2px solid rgb(240, 240, 240);
   opacity: 0.9;
+  z-index: 10; /* Add a higher z-index */
 }
 
 .dropdown-menu ul {
@@ -112,6 +113,7 @@
   margin-left: 15px;
 }
 
+
 .search-results {
   position: absolute;
   top: 11vh;
@@ -120,8 +122,8 @@
   background-color: white;
   border-radius: 5px;
   opacity: 0.9;
+  z-index: 10; /* Add a higher z-index */
 }
-
 .search-results ul {
   list-style-type: none;
   padding: 0;

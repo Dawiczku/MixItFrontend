@@ -8,6 +8,7 @@ import Categories from "./components/Categories";
 import SelectedFlavor from "./components/SelectedFlavor";
 import Ingredients from "./components/Ingredients";
 import SelectedIngredients from "./components/SelectedIngredients";
+import Autors from "./components/Autors";
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
         <Route exact path="/ingredients" element={<Ingredients />} />
         <Route exact path="/flavor/:flavor" element={<SelectedFlavor />} />
         <Route exact path="/selectedIngredients" element={<SelectedIngredients />} />
+        <Route exact path="/autors" element={<Autors />} />
+
       </Routes>
     </Router>
   );

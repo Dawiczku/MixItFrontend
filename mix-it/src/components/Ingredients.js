@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import "../styles/Ingredients.css";
 import drinkService from "../services/drinkService";
-import { ingredientService } from "../services/ingredientService"; // Import ingredientService
+import { ingredientService } from "../services/ingredientService";
 
 function Ingredients() {
     const [ingredients, setIngredients] = useState([]);
@@ -21,23 +21,45 @@ function Ingredients() {
         };
         fetchIngredients();
     }, []);
+// Ingredients.js
+const handleCheckboxChange = async (event) => {
+    const { value, checked } = event.target;
+    let updatedSelectedIngredients;
 
-    const handleCheckboxChange = (event) => {
-        const { value, checked } = event.target;
-        if (checked) {
-            setSelectedIngredients([...selectedIngredients, value]);
+    if (checked) {
+        updatedSelectedIngredients = [...selectedIngredients, value];
+    } else {
+        updatedSelectedIngredients = selectedIngredients.filter((ingredient) => ingredient !== value);
+    }
+
+    setSelectedIngredients(updatedSelectedIngredients);
+
+    // Check if any checkboxes are checked
+    const anyCheckboxChecked = updatedSelectedIngredients.length > 0;
+
+    try {
+        let ingredientCombination;
+        if (anyCheckboxChecked) {
+            // Fetch ingredient combination only if checkboxes are checked
+            ingredientCombination = await drinkService.getIngredientCombination(updatedSelectedIngredients);
         } else {
-            setSelectedIngredients(selectedIngredients.filter((ingredient) => ingredient !== value));
+            // Fetch all ingredients if no checkboxes are checked
+            ingredientCombination = await drinkService.getIngredients();
         }
-    };
+        setIngredients(ingredientCombination);
+    } catch (error) {
+        setError(error);
+    }
+};
+
+
+
+
 
     const handleSearchButtonClick = async () => {
-        console.log("Selected Ingredients:", selectedIngredients); 
         try {
-            const recipes = await drinkService.getRecipesByIngredients(selectedIngredients);
-            console.log("Recipes:", recipes); 
-            ingredientService.setSelectedIngredients(selectedIngredients); // Pass selected ingredients to ingredientService
-            navigate("/selectedIngredients"); // Redirect to selectedIngredients route
+            ingredientService.setSelectedIngredients(selectedIngredients);
+            navigate("/selectedIngredients");
         } catch (error) {
             setError(error);
         }
@@ -62,6 +84,8 @@ function Ingredients() {
                                 id={`ingredient-${index}`}
                                 value={ingredient}
                                 onChange={handleCheckboxChange}
+                                checked={selectedIngredients.includes(ingredient)} // Check if ingredient is in selectedIngredients
+
                             />
                             <label htmlFor={`ingredient-${index}`}>{ingredient}</label>
                         </div>

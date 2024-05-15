@@ -65,7 +65,18 @@ const drinkService = {
             console.error("Error fetching recipes by ingredients:", error);
             throw error;
         }
+    },
+    getIngredientCombination: async (selectedIngredients) => {
+        try {
+            const params = selectedIngredients.map(ingredient => `name=${encodeURIComponent(ingredient)}`).join('&');
+            const response = await axios.get(`${API_BASE_URL}/ingredientCombination?${params}`);
+            return response.data;
+        } catch (error) {
+            console.error("Error fetching ingredient combination:", error);
+            throw error;
+        }
     }
+    
 };
 
 

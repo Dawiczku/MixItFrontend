@@ -114,6 +114,9 @@ function Navbar() {
               <li>
                 <Link to="/ingredients">Składniki</Link>
               </li>
+              <li>
+                <Link to="/autors">Autorzy</Link>
+              </li>
             </ul>
           </div>
         )}
