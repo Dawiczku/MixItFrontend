@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css?family=Sacramento&display=swap");
+
+.not-found__wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  color: white;
+}
+
+.not-found__content {
+  text-align: center;
+}
+
+.not-found__title {
+  font-family: "Sacramento", cursive;
+  font-size: 8rem;
+  text-shadow:
+    0 0 5px #f791e8,
+    0 0 15px #f791e8,
+    0 0 20px #f791e8,
+    0 0 40px #f791e8,
+    0 0 60px #e535eb,
+    0 0 10px #a925dd,
+    0 0 98px #e535eb;
+  color: #fff6a9;
+}
+
+.not-found__message {
+  font-size: 2rem;
+  margin: 20px 0;
+}
+
+.not-found__link {
+  font-size: 1.5rem;
+  color: rgb(230, 230, 230);
+  text-decoration: none;
+  border: 3px solid #3dd8fc;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 0 20px 0 #3dd8fc;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.55));
+  transition: 0.3s;
+}
+
+.not-found__link:hover {
+  color: white;
+  box-shadow: 0 0 30px 0 #3dd8fc;
+}

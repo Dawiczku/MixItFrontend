@@ -8,6 +8,16 @@
   color: white;
 }
 
+.add-to-favorites {
+  border: 3px solid #3dd8fc;
+  box-shadow: 0 0 20px 0 #3dd8fc;
+  font-size: clamp(1rem, 1vw, 2rem);
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.55));
+  padding: 1rem;
+  color: rgb(230, 230, 230);
+  cursor: pointer;
+}
+
 .selected-drink {
   font-size: clamp(1rem, 2vw, 2rem);
   color: rgb(230, 230, 230);
@@ -25,7 +35,6 @@
   grid-row-start: 1;
   grid-row-end: -1;
   grid-row-end: span 2; /* Extend the image fieldset to span 2 rows */
-
 }
 
 .selected-drink__ingredients,
@@ -64,7 +73,6 @@
   border-radius: 20px;
 }
 
-
 .selected-drink__image-wrapper {
   height: calc(100% + 2.9rem); /* Increase the height by 4rem */
   width: 100%;
@@ -73,9 +81,7 @@
   align-items: center;
   overflow: hidden;
   margin-top: -2.9rem; /* Move the wrapper 4rem towards the top */
-
 }
-
 
 .selected-drink__wrapper legend {
   font-family: "Sacramento", cursive;
@@ -93,7 +99,6 @@
   z-index: 1; /* Add a higher z-index to move it over the image */
 }
 
-
 .selected-drink__wrapper img {
   width: 100%;
   height: calc(100% + 4rem); /* Increase the height by 4rem */
@@ -106,7 +111,7 @@
   column-gap: 20px;
 }
 
-fieldset{
+fieldset {
   padding: 0;
   margin: 0;
 }

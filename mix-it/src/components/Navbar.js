@@ -17,12 +17,17 @@ function Navbar() {
     };
   }, []);
 
-
   const handleClickOutside = (event) => {
-    if (searchResultsRef.current && !searchResultsRef.current.contains(event.target)) {
+    if (
+      searchResultsRef.current &&
+      !searchResultsRef.current.contains(event.target)
+    ) {
       setSearchResults([]);
     }
-    if (burgerMenuRef.current && !burgerMenuRef.current.contains(event.target)) {
+    if (
+      burgerMenuRef.current &&
+      !burgerMenuRef.current.contains(event.target)
+    ) {
       setIsMenuOpen(false);
     }
   };
@@ -106,7 +111,7 @@ function Navbar() {
           ☰
         </button>
         {isMenuOpen && (
-          <div className="dropdown-menu"  ref={burgerMenuRef}>
+          <div className="dropdown-menu" ref={burgerMenuRef}>
             <ul>
               <li>
                 <Link to="/categories">Kategorie</Link>
@@ -116,6 +121,9 @@ function Navbar() {
               </li>
               <li>
                 <Link to="/autors">Autorzy</Link>
+              </li>
+              <li>
+                <Link to="/favorites">Favorites</Link>
               </li>
             </ul>
           </div>
@@ -127,7 +135,10 @@ function Navbar() {
             {searchResults.map((result) => (
               <li key={result.id}>
                 {}
-                <Link to={`/drink/${result.id}`} onClick={() => setSearchQuery("")}>
+                <Link
+                  to={`/drink/${result.id}`}
+                  onClick={() => setSearchQuery("")}
+                >
                   {result.name}
                 </Link>
               </li>

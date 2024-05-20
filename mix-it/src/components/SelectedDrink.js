@@ -10,7 +10,28 @@ function SelectedDrink() {
   useEffect(() => {
     const fetchDrinkById = async () => {
       try {
-        const drinkData = await drinkService.getDrinkById(id);
+        // const drinkData = await drinkService.getDrinkById(id);
+        const drinkData = {
+          _id: {
+            $oid: "66100646fe2ccf09c43c9985",
+          },
+          name: "modzajtko version 2",
+          flavor: "SWEET",
+          baseAlcohol: "RUM",
+          ingredients: [
+            "świeża mięta",
+            "cukier trzcinowy",
+            "sok z limonki",
+            "soda",
+            "biały rum",
+          ],
+          strength: 8,
+          howToMake:
+            "W dużym kieliszku zgnieść 6-8 listków mięty z 2 łyżeczkami cukru. Dodać sok z limonki i rozpuścić cukier. Dodać kilka kostek lodu i wlać rum. Dopełnić napojem gazowanym. Wymieszać i udekorować gałązką mięty i plasterkiem limonki.",
+          rating: 5,
+          _class: "com.ZapitaTech.MixIt.Recipes.Recipe",
+        };
+
         setDrink(drinkData);
       } catch (error) {
         console.error("Error fetching drink details:", error);
@@ -22,12 +43,21 @@ function SelectedDrink() {
     }
   }, [id]);
 
+  const addToFavorites = () => {
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    const updatedFavorites = [...favorites, drink];
+    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+    alert(`${drink.name} has been added to your favorites!`);
+  };
+
   return (
     <div className="selected-drink__wrapper">
       <fieldset className="selected-drink selected-drink__ingredients">
         <legend>Skladniki</legend>
         {drink && (
-          <ol className={`ingredients-list ${drink.ingredients.length > 5 ? "multi-column" : ""}`}>
+          <ol
+            className={`ingredients-list ${drink.ingredients.length > 5 ? "multi-column" : ""}`}
+          >
             {drink.ingredients.map((ingredient, index) => (
               <li key={index}>
                 <span className="dash">-</span> {ingredient}
@@ -38,13 +68,14 @@ function SelectedDrink() {
       </fieldset>
       <fieldset className="selected-drink selected-drink__photo">
         <legend>{drink && drink.name}</legend>
-        <div className="selected-drink__image-wrapper">
-          <img src={drink && drink.imageUrl} alt={drink && drink.name} className="selected-drink__image" />
-        </div>
+        <p>PHOTO</p>
       </fieldset>
       <fieldset className="selected-drink selected-drink__recipe">
         <legend>Przepis</legend>
-        {drink && <p>{drink.howToMake}</p>}
+        {drink && <p>{drink && drink.howToMake}</p>}
+        <button className="add-to-favorites" onClick={addToFavorites}>
+          Add to Favorites
+        </button>
       </fieldset>
     </div>
   );
